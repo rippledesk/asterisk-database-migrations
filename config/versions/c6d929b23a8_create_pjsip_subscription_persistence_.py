@@ -17,7 +17,7 @@ import sqlalchemy as sa
 def upgrade():
     op.create_table(
         'ps_subscription_persistence',
-        sa.Column('id', sa.String(40), nullable=False, unique=True),
+    sa.Column('id', sa.String(40), nullable=False, unique=True),
 	sa.Column('packet', sa.String(2048)),
 	sa.Column('src_name', sa.String(128)),
 	sa.Column('src_port', sa.Integer),

@@ -103,6 +103,7 @@ def upgrade():
     op.create_table(
         'ps_registrations',
         sa.Column('id', sa.String(40), nullable=False, unique=True),
+        sa.PrimaryKeyConstraint('id'),
         sa.Column('auth_rejection_permanent', yesno_values),
         sa.Column('client_uri', sa.String(40)),
         sa.Column('contact_user', sa.String(40)),
