@@ -39,6 +39,7 @@ def upgrade():
     op.create_table(
         'ps_endpoints',
         sa.Column('id', sa.String(40), nullable=False, unique=True),
+        sa.PrimaryKeyConstraint('id'),
         sa.Column('transport', sa.String(40)),
         sa.Column('aors', sa.String(200)),
         sa.Column('auth', sa.String(40)),
@@ -126,7 +127,8 @@ def upgrade():
 
     op.create_table(
         'ps_auths',
-        sa.Column('id', sa.String(40), nullable=False, unique=True),
+        sa.Column('id', sa.String(100), nullable=False, unique=True),
+        sa.PrimaryKeyConstraint('id'),
         sa.Column('auth_type', sa.Enum(*PJSIP_AUTH_TYPE_VALUES, name='pjsip_auth_type_values')),
         sa.Column('nonce_lifetime', sa.Integer),
         sa.Column('md5_cred', sa.String(40)),
@@ -139,7 +141,8 @@ def upgrade():
 
     op.create_table(
         'ps_aors',
-        sa.Column('id', sa.String(40), nullable=False, unique=True),
+        sa.Column('id', sa.String(100), nullable=False, unique=True),
+        sa.PrimaryKeyConstraint('id'),
         sa.Column('contact', sa.String(40)),
         sa.Column('default_expiration', sa.Integer),
         sa.Column('mailboxes', sa.String(80)),
@@ -154,7 +157,8 @@ def upgrade():
 
     op.create_table(
         'ps_contacts',
-        sa.Column('id', sa.String(40), nullable=False, unique=True),
+        sa.Column('id', sa.String(100), nullable=False, unique=True),
+        sa.PrimaryKeyConstraint('id'),
         sa.Column('uri', sa.String(40)),
         sa.Column('expiration_time', sa.String(40)),
         sa.Column('qualify_frequency', sa.Integer),
